@@ -1,0 +1,15 @@
+.Container {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.PhoneList {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.PhoneList_item {
+  margin-left: 10px;
+}
