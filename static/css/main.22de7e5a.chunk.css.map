@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/components/phonebook/phonebook.module.css"],"names":[],"mappings":"AAAA,4BACE,WAAY,CACZ,YAAa,CACb,qBACF","file":"main.22de7e5a.chunk.css","sourcesContent":[".Container {\n  width: 300px;\n  display: flex;\n  flex-direction: column;\n}\n"]}
