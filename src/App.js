@@ -13,22 +13,22 @@ class App extends Component {
 
   addContacts = ({ name, number, id }) => {
     let contact = {
-      id,
+      id: shortid.generate(),
       name,
       number,
     };
-    
 
-  this.state.contacts.map(con =>
-      con.name === name
-        ? (alert(`${name} is already in contacts`),
-          this.deleteContact(con.id))
-        : (contact = { name, number, id: shortid.generate() }),
+    const isUniqueName = this.state.contacts.find(
+      con => con.name === contact.name,
     );
 
-    this.setState(prevState => ({
-      contacts: [contact, ...prevState.contacts],
-    }));
+    if (isUniqueName) {
+      alert(`${name} is already in contacts`);
+    } else {
+      this.setState(prevState => ({
+        contacts: [contact, ...prevState.contacts],
+      }));
+    }
   };
 
   deleteContact = contactId => {
