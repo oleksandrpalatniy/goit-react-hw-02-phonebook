@@ -21,7 +21,7 @@ class App extends Component {
     const isUniqueName = this.state.contacts.find(
       con => con.name === contact.name,
     );
-
+    
     if (isUniqueName) {
       alert(`${name} is already in contacts`);
     } else {
