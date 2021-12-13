@@ -11,6 +11,20 @@ class App extends Component {
     filter: '',
   };
 
+  componentDidMount() {
+    const contacts = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(contacts);
+    if (parsedContacts) {
+      this.setState({ contacts: parsedContacts });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.contacts !== prevState.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
+
   addContacts = ({ name, number, id }) => {
     let contact = {
       id: shortid.generate(),
@@ -18,11 +32,9 @@ class App extends Component {
       number,
     };
 
-    const isUniqueName = this.state.contacts.find(
-      con => con.name === contact.name,
-    );
-    
-    if (isUniqueName) {
+    const findName = this.state.contacts.find(con => con.name === contact.name);
+
+    if (findName) {
       alert(`${name} is already in contacts`);
     } else {
       this.setState(prevState => ({

@@ -26,7 +26,7 @@ class Form extends Component {
     return (
       <form className={styles.Container} onSubmit={this.handleSubmit}>
         <h2>Phonebook</h2>
-        <label htmlFor={this.nameInputId}>
+        <label htmlFor={this.nameInputId} className={styles.InputForm}>
           Name
           <input
             type="text"
@@ -39,7 +39,7 @@ class Form extends Component {
             id={this.nameInputId}
           ></input>
         </label>
-        <label htmlFor={this.numberInputId}>
+        <label htmlFor={this.numberInputId} className={styles.InputForm}>
           {' '}
           Number
           <input
